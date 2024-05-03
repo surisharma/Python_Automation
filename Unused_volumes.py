@@ -21,9 +21,12 @@ def list_unused_volumes_in_all_regions():
   return all_unused_volumes
 unused_volumes_all_regions = list_unused_volumes_in_all_regions
 for volume in unused_volumes_all_regions:
-  print("Volume ID:" volume['VolumeID']
-  print(Size:", volume['Size'], "GiB")
-  print("Availability Zone:", volume['AvailabilityZone'])
-  print("State:", volume['State'])
+  region = volume['AvailabilityZone'][:-1]
+  print(f"Unused Volume ID: {volume['VolumeId']} | State: {volume['State']} | Region: {region} | | Size: {volume['Size']}, GiB ")
   print("------------------------")
+  #print("Volume ID:" volume['VolumeID']
+  #print(Size:", volume['Size'], "GiB")
+  #print("Availability Zone:", volume['AvailabilityZone'])
+  #print("State:", volume['State'])
+  #print("------------------------")
   
